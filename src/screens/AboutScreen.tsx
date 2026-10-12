@@ -5,8 +5,6 @@ import { colors, fonts } from '../theme';
 import { BackIcon, Logo } from '../components/Icons';
 import { Button, Card, IconButton } from '../components/ui';
 
-// Replace with the real expert before launch. The app must not claim expert design until this is true.
-const EXPERT_CREDIT = '[EXPERT NAME, CREDENTIALS]';
 const CONTACT_EMAIL = 'hello@getmiiras.com';
 const PRIVACY_URL = 'https://getmiiras.com/privacy';
 
@@ -42,8 +40,10 @@ export function AboutScreen({ onBack }: { onBack: () => void }) {
         <Text style={styles.body}>These questions help families talk. They aren’t medical, legal or financial advice. For decisions, speak with a qualified professional.</Text>
       </Card>
       <Card style={styles.section}>
-        <Text style={styles.sectionTitle}>Who wrote the questions</Text>
-        <Text style={styles.body}>Questions developed with {EXPERT_CREDIT}.</Text>
+        <Text style={styles.sectionTitle}>How we wrote the questions</Text>
+        <Text style={styles.body}>
+          Every question is grounded in published research on how families talk about money, health and the end of life, drawing on family psychology, family wealth advising and end-of-life care guides such as The Conversation Project’s.
+        </Text>
       </Card>
 
       <Button variant="secondary" label="Privacy policy" onPress={() => Linking.openURL(PRIVACY_URL)} />

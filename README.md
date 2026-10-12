@@ -10,7 +10,7 @@ Built with Expo (React Native). One codebase for iOS and Android.
 | --- | --- |
 | A question, deck title, blurb or "why" text | `src/content/decks.json` |
 | Colours and fonts | `src/theme.ts` |
-| Expert credit, contact email, privacy link | `src/screens/AboutScreen.tsx` (top of file) |
+| "How we wrote the questions", contact email, privacy link | `src/screens/AboutScreen.tsx` |
 | App name, version, bundle ID | `app.json` |
 | App icon and splash | `assets/` |
 
@@ -40,7 +40,6 @@ To release an update, bump `version` in `app.json` (and `ios.buildNumber` and `a
 
 ## Before you launch
 
-- [ ] Replace `[EXPERT NAME, CREDENTIALS]` in `AboutScreen.tsx` with the real expert, or remove the line. Don't claim expert design until it's true.
-- [ ] Publish `docs/privacy-policy.html` at https://getmiiras.com/privacy (or change the link in `AboutScreen.tsx`).
+- [ ] Make sure the privacy link in `AboutScreen.tsx` points to a policy that covers the app (draft in `docs/privacy-policy.html`), not only the website waitlist.
 - [ ] Run `npx expo-doctor` on your computer and fix anything it flags.
 - [ ] Test on a real iPhone and Android phone, including swiping and the back button.
