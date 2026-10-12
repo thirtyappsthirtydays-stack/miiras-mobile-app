@@ -6,7 +6,7 @@ import { BackIcon, Logo } from '../components/Icons';
 import { Button, Card, IconButton } from '../components/ui';
 
 const CONTACT_EMAIL = 'hello@getmiiras.com';
-const PRIVACY_URL = 'https://getmiiras.com/privacy';
+const PRIVACY_URL = 'https://getmiiras.com/app-privacy';
 
 export function AboutScreen({ onBack }: { onBack: () => void }) {
   const insets = useSafeAreaInsets();

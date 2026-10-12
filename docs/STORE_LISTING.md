@@ -29,7 +29,7 @@ family,conversation,parents,money talk,estate,will,inheritance,aging,caregiving,
 
 **Support URL:** https://getmiiras.com
 **Marketing URL:** https://getmiiras.com
-**Privacy policy URL:** https://getmiiras.com/privacy
+**Privacy policy URL:** https://getmiiras.com/app-privacy
 
 **App Privacy (nutrition label):** Data Not Collected
 

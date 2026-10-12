@@ -41,6 +41,6 @@ To release an update, bump `version` in `app.json` (and `ios.buildNumber` and `a
 
 ## Before you launch
 
-- [ ] Make sure the privacy link in `AboutScreen.tsx` points to a policy that covers the app (draft in `docs/privacy-policy.html`), not only the website waitlist.
+- [x] App privacy policy is live at https://getmiiras.com/app-privacy (source in the miiras-site repo).
 - [ ] Run `npx expo-doctor` on your computer and fix anything it flags.
 - [ ] Test on a real iPhone and Android phone, including swiping and the back button.
