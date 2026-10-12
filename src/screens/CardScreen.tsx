@@ -2,33 +2,37 @@ import { useMemo, useRef, useState } from 'react';
 import { Animated, PanResponder, Pressable, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import * as Haptics from 'expo-haptics';
-import { Deck, LEVEL_HINT, LEVEL_LABEL, WHO_LABEL, groupOf } from '../content';
+import { Deck, LEVEL_LABEL, WHO_LABEL, groupOf } from '../content';
 import { Mark } from '../progress';
-import { colors, fonts } from '../theme';
-import { UndoIcon } from '../components/Icons';
+import { colors, fonts, tintFor } from '../theme';
+import { BackIcon, ListIcon, TipIcon } from '../components/Icons';
 import { Button, IconButton, tap } from '../components/ui';
 
 type Props = {
   deck: Deck;
   queue: number[]; // question indexes to go through, in order
+  startPos?: number;
   marks: (Mark | undefined)[];
   onMark: (questionIndex: number, mark: Mark) => void;
   onFinish: () => void;
+  onOpenList: (pos: number) => void;
 };
 
 const SWIPE_THRESHOLD = 110;
 
-export function CardScreen({ deck, queue, marks, onMark, onFinish }: Props) {
+export function CardScreen({ deck, queue, startPos = 0, marks, onMark, onFinish, onOpenList }: Props) {
   const insets = useSafeAreaInsets();
   const { width } = useWindowDimensions();
   const group = groupOf(deck);
-  const [pos, setPos] = useState(0);
+  const [pos, setPos] = useState(Math.min(startPos, queue.length - 1));
   const x = useRef(new Animated.Value(0)).current;
   const busy = useRef(false);
 
   const qIndex = queue[Math.min(pos, queue.length - 1)];
   const question = deck.questions[qIndex];
   const isLast = pos >= queue.length - 1;
+  const tint = tintFor(qIndex);
+  const nextTint = tintFor(queue[pos + 1] ?? qIndex + 1);
 
   // Keep the latest values available to the gesture handlers.
   const latest = useRef({ pos, queue, qIndex });
@@ -84,53 +88,66 @@ export function CardScreen({ deck, queue, marks, onMark, onFinish }: Props) {
           <Text style={styles.counter}>Question {pos + 1} of {queue.length}</Text>
           <Text style={styles.deckName} numberOfLines={1}>{deck.title}</Text>
         </View>
-        <IconButton label="Previous question" disabled={pos === 0} onPress={() => setPos(Math.max(0, pos - 1))}>
-          <UndoIcon />
+        <IconButton label="All questions" onPress={() => onOpenList(pos)}>
+          <ListIcon />
         </IconButton>
       </View>
 
       <View style={styles.segments} accessibilityElementsHidden importantForAccessibility="no-hide-descendants">
         {queue.map((qi, k) => {
           const m = marks[qi];
-          const bg = k < pos ? (m === 'talked' ? colors.gold : colors.skipped) : k === pos ? colors.navy : colors.pending;
+          const bg = k === pos ? colors.navy : m === 'talked' ? colors.gold : m === 'later' ? colors.skipped : colors.pending;
           return <View key={k} style={[styles.segment, { backgroundColor: bg }]} />;
         })}
       </View>
 
       <View style={{ flex: 1 }}>
-        {!isLast && <View style={[styles.cardBehind, { backgroundColor: group.colors.background }]} />}
+        {!isLast && <View style={[styles.cardBehind, { backgroundColor: nextTint.background }]} />}
         <Animated.View
           {...pan.panHandlers}
           accessible
-          accessibilityLabel={`${question.text}. ${WHO_LABEL[question.who]}. ${LEVEL_LABEL[question.level]}.`}
+          accessibilityLabel={`${question.text}. ${WHO_LABEL[question.who]}. ${LEVEL_LABEL[question.level]}. Tip: ${question.tip}`}
           accessibilityHint="Swipe right when you’ve talked it through, or swipe left to come back to it later."
-          style={[styles.card, { backgroundColor: group.colors.background, transform: [{ translateX: x }, { rotate }] }]}
+          style={[styles.card, { backgroundColor: tint.background, transform: [{ translateX: x }, { rotate }] }]}
         >
           <View style={styles.cardTop}>
-            <Text style={[styles.cardGroup, { color: group.colors.label }]}>{group.name}</Text>
-            <View style={[styles.levelPill, { borderColor: group.colors.label }]}>
-              <Text style={[styles.levelText, { color: group.colors.label }]}>{LEVEL_LABEL[question.level]}</Text>
+            <Text style={[styles.cardGroup, { color: tint.label }]}>{group.name}</Text>
+            <View style={[styles.levelPill, { borderColor: tint.label }]}>
+              <Text style={[styles.levelText, { color: tint.label }]}>{LEVEL_LABEL[question.level]}</Text>
             </View>
           </View>
           <View style={styles.stamps}>
             <Animated.Text style={[styles.stamp, styles.stampTalked, { opacity: talkedOpacity }]}>TALKED</Animated.Text>
-            <Animated.Text style={[styles.stamp, styles.stampLater, { opacity: laterOpacity }]}>LATER</Animated.Text>
+            <Animated.Text style={[styles.stamp, styles.stampLater, { opacity: laterOpacity }]}>SKIP</Animated.Text>
           </View>
           <View style={{ flex: 1, justifyContent: 'center' }}>
-            <Text style={[styles.question, { color: group.colors.text }]}>{question.text}</Text>
+            <Text style={[styles.question, { color: tint.text }]}>{question.text}</Text>
           </View>
           <View style={{ gap: 8 }}>
             <View style={styles.whoPill}>
-              <Text style={[styles.whoText, { color: group.colors.text }]}>{WHO_LABEL[question.who]}</Text>
+              <Text style={[styles.whoText, { color: tint.text }]}>{WHO_LABEL[question.who]}</Text>
             </View>
-            <Text style={[styles.hint, { color: group.colors.label }]}>{LEVEL_HINT[question.level]}</Text>
+            <View style={styles.tipRow}>
+              <TipIcon color={tint.label} />
+              <Text style={[styles.hint, { color: tint.label }]}>{question.tip}</Text>
+            </View>
           </View>
         </Animated.View>
       </View>
 
       <View style={styles.actions}>
-        <Button label="Skip for now" variant="secondary" style={{ flex: 1 }} onPress={() => advance('later')} />
-        <Button label={isLast ? 'Finish' : 'Next question'} style={{ flex: 1 }} onPress={() => advance('talked')} />
+        <Pressable
+          accessibilityRole="button"
+          accessibilityLabel="Previous question"
+          accessibilityState={{ disabled: pos === 0 }}
+          disabled={pos === 0}
+          onPress={() => { tap(); setPos(pos - 1); }}
+          style={({ pressed }) => [styles.backBtn, pos === 0 && { opacity: 0.35 }, pressed && { opacity: 0.7 }]}
+        >
+          <BackIcon />
+        </Pressable>
+        <Button label="Skip for now" variant="secondary" style={{ flex: 1, paddingHorizontal: 8 }} onPress={() => advance('later')} />
+        <Button label={isLast ? 'Finish' : 'Next'} style={{ flex: 1 }} onPress={() => advance('talked')} />
       </View>
       <Text style={styles.swipeHint}>Swipe right when you’ve talked it through, left to skip</Text>
     </View>
@@ -145,7 +162,7 @@ const styles = StyleSheet.create({
   deckName: { fontFamily: fonts.body, fontSize: 12, color: colors.muted },
   segments: { flexDirection: 'row', gap: 3 },
   segment: { flex: 1, height: 4, borderRadius: 2 },
-  cardBehind: { position: 'absolute', left: 12, right: 12, top: 14, bottom: 0, borderRadius: 28, opacity: 0.55 },
+  cardBehind: { position: 'absolute', left: 12, right: 12, top: 14, bottom: 0, borderRadius: 28, opacity: 0.6 },
   card: { flex: 1, marginBottom: 12, userSelect: 'none', borderRadius: 28, padding: 24, gap: 14, shadowColor: colors.navy, shadowOpacity: 0.1, shadowRadius: 20, shadowOffset: { width: 0, height: 10 }, elevation: 3 },
   cardTop: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
   cardGroup: { fontFamily: fonts.bodyBold, fontSize: 12, letterSpacing: 1, textTransform: 'uppercase' },
@@ -158,7 +175,9 @@ const styles = StyleSheet.create({
   question: { fontFamily: fonts.display, fontSize: 30, lineHeight: 36, letterSpacing: -0.3 },
   whoPill: { alignSelf: 'flex-start', backgroundColor: 'rgba(255,255,255,0.7)', borderRadius: 12, paddingHorizontal: 10, paddingVertical: 5 },
   whoText: { fontFamily: fonts.bodyBold, fontSize: 13 },
-  hint: { fontFamily: fonts.body, fontSize: 13, lineHeight: 18 },
+  tipRow: { flexDirection: 'row', gap: 8, alignItems: 'flex-start' },
+  hint: { flex: 1, fontFamily: fonts.body, fontSize: 14, lineHeight: 20 },
+  backBtn: { width: 54, minHeight: 54, borderRadius: 14, borderWidth: 1, borderColor: colors.borderStrong, backgroundColor: colors.white, alignItems: 'center', justifyContent: 'center' },
   actions: { flexDirection: 'row', gap: 10 },
   swipeHint: { fontFamily: fonts.body, fontSize: 13, color: colors.muted, textAlign: 'center' },
 });

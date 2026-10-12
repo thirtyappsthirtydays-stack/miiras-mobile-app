@@ -8,8 +8,9 @@ Built with Expo (React Native). One codebase for iOS and Android.
 
 | You want to change | Edit this |
 | --- | --- |
-| A question, deck title, blurb or "why" text | `src/content/decks.json` |
+| A question, its tag (who it’s for), its tip, a deck title, blurb or "why" text | `src/content/decks.json` |
 | Colours and fonts | `src/theme.ts` |
+| Onboarding screens | `src/screens/OnboardingScreen.tsx` |
 | "How we wrote the questions", contact email, privacy link | `src/screens/AboutScreen.tsx` |
 | App name, version, bundle ID | `app.json` |
 | App icon and splash | `assets/` |

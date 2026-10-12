@@ -7,7 +7,8 @@
         "background": "#F3EAD6",
         "text": "#3B2A08",
         "label": "#6E5216"
-      }
+      },
+      "line": "Agree how you’ll talk, and what matters most"
     },
     {
       "id": "g2",
@@ -16,7 +17,8 @@
         "background": "#E1E7EF",
         "text": "#1B2A41",
         "label": "#3F4B5E"
-      }
+      },
+      "line": "Everyday money and the years ahead"
     },
     {
       "id": "g3",
@@ -25,7 +27,8 @@
         "background": "#E2EAE3",
         "text": "#1F3326",
         "label": "#3B5544"
-      }
+      },
+      "line": "Medical wishes and help when it’s needed"
     },
     {
       "id": "g4",
@@ -34,7 +37,8 @@
         "background": "#EADFD6",
         "text": "#3A2A22",
         "label": "#64463A"
-      }
+      },
+      "line": "Wills, documents and what’s fair"
     },
     {
       "id": "g5",
@@ -43,7 +47,8 @@
         "background": "#E8E3EF",
         "text": "#2E2440",
         "label": "#56466E"
-      }
+      },
+      "line": "Who does what, and how you’ll be remembered"
     }
   ],
   "decks": [
@@ -57,52 +62,62 @@
         {
           "text": "Why did each of us agree to sit down for this today?",
           "who": "everyone",
-          "level": "gentle"
+          "level": "gentle",
+          "tip": "Go around the table. Short answers are fine."
         },
         {
           "text": "What’s one thing you hope we’ll understand better by the end?",
           "who": "everyone",
-          "level": "gentle"
+          "level": "gentle",
+          "tip": "Remember these. You can check in on them at the end."
         },
         {
           "text": "What makes talking about money or health hard in our family?",
           "who": "everyone",
-          "level": "gentle"
+          "level": "gentle",
+          "tip": "Name the feeling, not the person. “It feels awkward” works better than “You never…”"
         },
         {
           "text": "Did your family talk about these things when you were growing up? What was that like?",
           "who": "everyone",
-          "level": "gentle"
+          "level": "gentle",
+          "tip": "Parents first. Their answer often explains a lot."
         },
         {
           "text": "What would make this conversation feel safe for you?",
           "who": "everyone",
-          "level": "gentle"
+          "level": "gentle",
+          "tip": "Listen for simple asks, like no phones or no interrupting, and agree to them."
         },
         {
           "text": "Is there anything you’d rather not talk about today?",
           "who": "everyone",
-          "level": "gentle"
+          "level": "gentle",
+          "tip": "Respect every answer. Skip those cards when they come up."
         },
         {
           "text": "How should we handle it if we disagree?",
           "who": "everyone",
-          "level": "practical"
+          "level": "practical",
+          "tip": "Try agreeing on a pause word anyone can say to take a break."
         },
         {
           "text": "Who else should eventually be part of these conversations?",
           "who": "everyone",
-          "level": "practical"
+          "level": "practical",
+          "tip": "Think siblings, partners or a trusted advisor."
         },
         {
           "text": "How often should we come back to these talks?",
           "who": "everyone",
-          "level": "practical"
+          "level": "practical",
+          "tip": "Tie it to a moment you already share, like a holiday or birthday."
         },
         {
           "text": "What’s a worry you’ve been carrying that you haven’t said out loud?",
           "who": "everyone",
-          "level": "deeper"
+          "level": "deeper",
+          "tip": "Just listen. You don’t need to solve it today."
         }
       ]
     },
@@ -116,52 +131,62 @@
         {
           "text": "What does a good life look like to you right now?",
           "who": "everyone",
-          "level": "gentle"
+          "level": "gentle",
+          "tip": "There’s no right answer. Let each person finish before anyone responds."
         },
         {
           "text": "What are you most proud of in how our family gets through hard times?",
           "who": "everyone",
-          "level": "gentle"
+          "level": "gentle",
+          "tip": "Share a specific moment, not a general trait."
         },
         {
           "text": "What has money made possible for you, and what has it never fixed?",
           "who": "everyone",
-          "level": "gentle"
+          "level": "gentle",
+          "tip": "Both halves matter. Take turns on each."
         },
         {
           "text": "What values do you hope our family carries forward?",
           "who": "everyone",
-          "level": "gentle"
+          "level": "gentle",
+          "tip": "Name one value each, then see where you overlap."
         },
         {
           "text": "What do you want the next ten years to feel like?",
           "who": "parents",
-          "level": "gentle"
+          "level": "gentle",
+          "tip": "Kids: ask one follow-up question before sharing your own view."
         },
         {
           "text": "What does “being secure” mean to you?",
           "who": "everyone",
-          "level": "practical"
+          "level": "practical",
+          "tip": "Notice where answers differ. That’s useful, not a problem."
         },
         {
           "text": "How do you think each generation in our family sees money differently?",
           "who": "everyone",
-          "level": "deeper"
+          "level": "deeper",
+          "tip": "Each person explains their own view, not someone else’s."
         },
         {
           "text": "What would you want us to do differently from how you did it?",
           "who": "parents",
-          "level": "deeper"
+          "level": "deeper",
+          "tip": "Kids: say thank you. This one takes honesty."
         },
         {
           "text": "What do you hope we never have to worry about?",
           "who": "parents",
-          "level": "deeper"
+          "level": "deeper",
+          "tip": "Kids: ask why this one feels important to them."
         },
         {
           "text": "What worries you most about our family’s future?",
           "who": "everyone",
-          "level": "deeper"
+          "level": "deeper",
+          "tip": "Acknowledge each worry before moving on."
         }
       ]
     },
@@ -175,52 +200,62 @@
         {
           "text": "Who handles the bills and day-to-day money in your house?",
           "who": "parents",
-          "level": "gentle"
+          "level": "gentle",
+          "tip": "Start simple. Who, not how much."
         },
         {
           "text": "How did you decide who does what with money?",
           "who": "parents",
-          "level": "gentle"
+          "level": "gentle",
+          "tip": "Often it just happened. That’s a fine answer."
         },
         {
           "text": "Who would you call first with a money question?",
           "who": "everyone",
-          "level": "gentle"
+          "level": "gentle",
+          "tip": "Kids answer too. It’s useful to hear everyone’s go-to person."
         },
         {
           "text": "If the person who handles the money couldn’t for a month, what would happen?",
           "who": "parents",
-          "level": "practical"
+          "level": "practical",
+          "tip": "Walk through it like a practice run, step by step."
         },
         {
           "text": "Does more than one person know how to get into the accounts?",
           "who": "parents",
-          "level": "practical"
+          "level": "practical",
+          "tip": "No passwords needed. Just whether someone else could."
         },
         {
           "text": "Which bills are automatic, and which need someone to pay them?",
           "who": "parents",
-          "level": "practical"
+          "level": "practical",
+          "tip": "A rough list is enough. Details can come later."
         },
         {
           "text": "Have you had any scam calls or suspicious messages lately? What did you do?",
           "who": "parents",
-          "level": "practical"
+          "level": "practical",
+          "tip": "Share your own close calls too. Everyone gets them."
         },
         {
           "text": "Is managing money getting harder, easier or about the same?",
           "who": "parents",
-          "level": "deeper"
+          "level": "deeper",
+          "tip": "Keep it light. This isn’t a test."
         },
         {
           "text": "What help with money, if any, would you welcome from us?",
           "who": "parents",
-          "level": "deeper"
+          "level": "deeper",
+          "tip": "Kids: offer, don’t insist."
         },
         {
           "text": "If we noticed you were struggling with bills, what would you want us to do?",
           "who": "parents",
-          "level": "deeper"
+          "level": "deeper",
+          "tip": "Agree on what you’d do now, so no one has to guess later."
         }
       ]
     },
@@ -234,52 +269,62 @@
         {
           "text": "What does a typical week in retirement look like, or how do you picture it?",
           "who": "parents",
-          "level": "gentle"
+          "level": "gentle",
+          "tip": "Make it specific: mornings, people, places."
         },
         {
           "text": "What surprised you most about retiring, or about planning for it?",
           "who": "parents",
-          "level": "gentle"
+          "level": "gentle",
+          "tip": "Kids: ask what they wish they’d known sooner."
         },
         {
           "text": "Where will your income come from once you stop working?",
           "who": "parents",
-          "level": "practical"
+          "level": "practical",
+          "tip": "Name the sources only. No amounts needed."
         },
         {
           "text": "Has anyone, like an advisor, reviewed your plan with you?",
           "who": "parents",
-          "level": "practical"
+          "level": "practical",
+          "tip": "If no one has, that’s useful to know, not a failure."
         },
         {
           "text": "If costs keep rising, what would you change first?",
           "who": "parents",
-          "level": "practical"
+          "level": "practical",
+          "tip": "Treat it as a what-if, not a prediction."
         },
         {
           "text": "How confident are you that your money will last as long as you need it?",
           "who": "parents",
-          "level": "deeper"
+          "level": "deeper",
+          "tip": "A simple scale works: very, somewhat or not sure."
         },
         {
           "text": "If one of you lived much longer than the other, would the other be okay?",
           "who": "parents",
-          "level": "deeper"
+          "level": "deeper",
+          "tip": "This can feel heavy. Go slowly."
         },
         {
           "text": "Would you tell us if money got tight? What would make that easier to say?",
           "who": "parents",
-          "level": "deeper"
+          "level": "deeper",
+          "tip": "Kids: say what you’d want to hear in return."
         },
         {
           "text": "Is anyone at this table counting on help from the others, now or later?",
           "who": "everyone",
-          "level": "deeper"
+          "level": "deeper",
+          "tip": "Help goes both ways, from parents to kids and kids to parents."
         },
         {
           "text": "What would “being okay” look like for each of us twenty years from now?",
           "who": "everyone",
-          "level": "deeper"
+          "level": "deeper",
+          "tip": "Everyone answers for themselves, not for each other."
         }
       ]
     },
@@ -293,52 +338,62 @@
         {
           "text": "What does a good day look like for you, even if your health changes?",
           "who": "everyone",
-          "level": "gentle"
+          "level": "gentle",
+          "tip": "Small details matter, like a morning walk or a phone call."
         },
         {
           "text": "Who supports you most when things get hard?",
           "who": "everyone",
-          "level": "gentle"
+          "level": "gentle",
+          "tip": "Use names, not roles. Who do you actually call?"
         },
         {
           "text": "If you were very sick, would you want to know everything or just the basics?",
           "who": "everyone",
-          "level": "practical"
+          "level": "practical",
+          "tip": "There’s no right answer, and it can be different for each of you."
         },
         {
           "text": "If you couldn’t speak for yourself, who would you want making medical decisions?",
           "who": "parents",
-          "level": "practical"
+          "level": "practical",
+          "tip": "Name a first choice and a backup."
         },
         {
           "text": "Does that person know, and is it written down?",
           "who": "parents",
-          "level": "practical"
+          "level": "practical",
+          "tip": "If not, a healthcare proxy form makes it official. A doctor can explain how."
         },
         {
           "text": "Who should, and shouldn’t, be told about your health?",
           "who": "parents",
-          "level": "practical"
+          "level": "practical",
+          "tip": "Think about who should hear news first."
         },
         {
           "text": "Are there treatments you’d want to avoid, even if they might extend your life?",
           "who": "parents",
-          "level": "deeper"
+          "level": "deeper",
+          "tip": "Describe what you’d want life to look like, not only treatments."
         },
         {
           "text": "At what point would you want care to focus on comfort rather than cure?",
           "who": "parents",
-          "level": "deeper"
+          "level": "deeper",
+          "tip": "This is a hard one. “I’m not sure yet” is a fine answer."
         },
         {
           "text": "Is there a future moment you very much want to be there for?",
           "who": "everyone",
-          "level": "deeper"
+          "level": "deeper",
+          "tip": "Let this be a warm one. Share what you’re looking forward to."
         },
         {
           "text": "Should we follow your wishes exactly, or do what gives us peace?",
           "who": "parents",
-          "level": "deeper"
+          "level": "deeper",
+          "tip": "Kids: listen first. This answer is a gift."
         }
       ]
     },
@@ -352,52 +407,62 @@
         {
           "text": "What do you love most about where you live now?",
           "who": "parents",
-          "level": "gentle"
+          "level": "gentle",
+          "tip": "Starting here makes later questions feel less like a threat."
         },
         {
           "text": "Where do you see yourselves living in ten years?",
           "who": "parents",
-          "level": "gentle"
+          "level": "gentle",
+          "tip": "Dreams are welcome, not just plans."
         },
         {
           "text": "If stairs or driving became hard, what would you want to do?",
           "who": "parents",
-          "level": "practical"
+          "level": "practical",
+          "tip": "Talk about changes that would help, not only moving."
         },
         {
           "text": "If you needed help at home, who would you want helping?",
           "who": "parents",
-          "level": "practical"
+          "level": "practical",
+          "tip": "Name both family and paid help."
         },
         {
           "text": "How would long-term care be paid for if you needed it?",
           "who": "parents",
-          "level": "practical"
+          "level": "practical",
+          "tip": "If it hasn’t been planned, that’s a good next step, not a failure."
         },
         {
           "text": "What can each of us realistically offer, given our jobs and families?",
           "who": "kids",
-          "level": "practical"
+          "level": "practical",
+          "tip": "Be honest about time and distance. It prevents resentment later."
         },
         {
           "text": "How would you feel about moving closer to one of us, or living together?",
           "who": "everyone",
-          "level": "deeper"
+          "level": "deeper",
+          "tip": "Everyone can feel differently. Hear all the answers first."
         },
         {
           "text": "What would you never want to happen if you needed care?",
           "who": "parents",
-          "level": "deeper"
+          "level": "deeper",
+          "tip": "Kids: take this seriously. It guides decisions later."
         },
         {
           "text": "How should we share the work of caring for you if it comes to that?",
           "who": "everyone",
-          "level": "deeper"
+          "level": "deeper",
+          "tip": "Talk about who’s nearby and who could help from afar."
         },
         {
           "text": "What would make accepting help feel okay to you?",
           "who": "parents",
-          "level": "deeper"
+          "level": "deeper",
+          "tip": "Kids: ask what kind of help feels respectful."
         }
       ]
     },
@@ -411,52 +476,62 @@
         {
           "text": "Have any of your friends had to sort things out for a parent? What did they wish they’d known?",
           "who": "everyone",
-          "level": "gentle"
+          "level": "gentle",
+          "tip": "Stories make this easier. Start with someone else’s."
         },
         {
           "text": "Do you have a will or a trust? When was it last updated?",
           "who": "parents",
-          "level": "practical"
+          "level": "practical",
+          "tip": "Yes, no and not sure are all fine answers."
         },
         {
           "text": "Is someone named to handle your money if you couldn’t?",
           "who": "parents",
-          "level": "practical"
+          "level": "practical",
+          "tip": "This is often called a financial power of attorney."
         },
         {
           "text": "Are the beneficiaries on your accounts and insurance still who you’d choose?",
           "who": "parents",
-          "level": "practical"
+          "level": "practical",
+          "tip": "Marriages, divorces and births are good reasons to check."
         },
         {
           "text": "If we needed your important papers tomorrow, where would we look?",
           "who": "parents",
-          "level": "practical"
+          "level": "practical",
+          "tip": "A place is enough. You don’t need to look now."
         },
         {
           "text": "Who helped you with these documents, and would they talk to us if needed?",
           "who": "parents",
-          "level": "practical"
+          "level": "practical",
+          "tip": "A name and how to reach them is all you need."
         },
         {
           "text": "How do you keep track of passwords and online accounts?",
           "who": "parents",
-          "level": "practical"
+          "level": "practical",
+          "tip": "Where they’re kept, never the passwords themselves."
         },
         {
           "text": "Is there anything you’ve been meaning to put in writing?",
           "who": "parents",
-          "level": "deeper"
+          "level": "deeper",
+          "tip": "Kids: offer to help book an appointment."
         },
         {
           "text": "Have we kids made our own wills, or named anyone for our children?",
           "who": "kids",
-          "level": "practical"
+          "level": "practical",
+          "tip": "Kids answer this one. It keeps things fair."
         },
         {
           "text": "What’s gotten in the way of finishing any of this?",
           "who": "everyone",
-          "level": "deeper"
+          "level": "deeper",
+          "tip": "Common answers: time, cost, not knowing where to start."
         }
       ]
     },
@@ -470,52 +545,62 @@
         {
           "text": "What did you inherit from your parents, in money, things or lessons?",
           "who": "parents",
-          "level": "gentle"
+          "level": "gentle",
+          "tip": "Lessons count as much as money or things."
         },
         {
           "text": "How was inheritance handled in your family growing up, and how did it feel?",
           "who": "parents",
-          "level": "gentle"
+          "level": "gentle",
+          "tip": "Listen for what felt fair or unfair to them."
         },
         {
           "text": "Is there anything, like the house or a keepsake, you’d want to stay in the family?",
           "who": "parents",
-          "level": "practical"
+          "level": "practical",
+          "tip": "Name the thing and why it matters."
         },
         {
           "text": "Would you rather help us now, while you can see it, or later?",
           "who": "parents",
-          "level": "practical"
+          "level": "practical",
+          "tip": "There’s no right answer. Each choice has trade-offs."
         },
         {
           "text": "Does “fair” mean “equal” to you?",
           "who": "everyone",
-          "level": "deeper"
+          "level": "deeper",
+          "tip": "Expect different answers. That’s the point of asking."
         },
         {
           "text": "How would you handle it if one of us has needed more help than the others?",
           "who": "parents",
-          "level": "deeper"
+          "level": "deeper",
+          "tip": "Kids: try not to defend or keep score."
         },
         {
           "text": "How much do you want us to know about your plans, and when?",
           "who": "parents",
-          "level": "deeper"
+          "level": "deeper",
+          "tip": "Parents decide this. Kids: respect the answer."
         },
         {
           "text": "Do any of us feel we’re expected to count on an inheritance, or not to?",
           "who": "kids",
-          "level": "deeper"
+          "level": "deeper",
+          "tip": "Be honest about what you’ve assumed."
         },
         {
           "text": "What would you want us to know how to do before anything is passed on?",
           "who": "parents",
-          "level": "deeper"
+          "level": "deeper",
+          "tip": "Think skills, not amounts: managing money, knowing who to call."
         },
         {
           "text": "What would you hope we never argue about?",
           "who": "everyone",
-          "level": "deeper"
+          "level": "deeper",
+          "tip": "End on agreement. Say the shared answer out loud."
         }
       ]
     },
@@ -529,52 +614,62 @@
         {
           "text": "Who in our family is the organizer, and who is the peacemaker?",
           "who": "everyone",
-          "level": "gentle"
+          "level": "gentle",
+          "tip": "Keep it playful. Everyone has a role."
         },
         {
           "text": "If something happened, who would you want sorting out your affairs?",
           "who": "parents",
-          "level": "practical"
+          "level": "practical",
+          "tip": "This person is usually called the executor."
         },
         {
           "text": "Does that person know, and are they willing?",
           "who": "everyone",
-          "level": "practical"
+          "level": "practical",
+          "tip": "If they’re at the table, ask them directly."
         },
         {
           "text": "If you needed care, who would you hope would coordinate it?",
           "who": "parents",
-          "level": "practical"
+          "level": "practical",
+          "tip": "It doesn’t have to be the same person as the executor."
         },
         {
           "text": "Is there anything you’d want one of us to learn how to do now, just in case?",
           "who": "parents",
-          "level": "practical"
+          "level": "practical",
+          "tip": "Pick one small thing to show them soon."
         },
         {
           "text": "How should we keep everyone in the loop, including those who live far away?",
           "who": "everyone",
-          "level": "practical"
+          "level": "practical",
+          "tip": "Agree on a way, like a group chat or a monthly call."
         },
         {
           "text": "What would you not want any of us involved in?",
           "who": "parents",
-          "level": "deeper"
+          "level": "deeper",
+          "tip": "Kids: hear this as a boundary, not a rejection."
         },
         {
           "text": "How do we make sure one person doesn’t end up carrying everything?",
           "who": "kids",
-          "level": "deeper"
+          "level": "deeper",
+          "tip": "Be honest about what’s realistic for you."
         },
         {
           "text": "How should we decide together when we disagree?",
           "who": "everyone",
-          "level": "deeper"
+          "level": "deeper",
+          "tip": "Agree on a tiebreaker now, while it’s calm."
         },
         {
           "text": "How can we help without it feeling like we’re taking over?",
           "who": "kids",
-          "level": "deeper"
+          "level": "deeper",
+          "tip": "Parents: give one example of help that feels good."
         }
       ]
     },
@@ -588,52 +683,62 @@
         {
           "text": "What do you hope people remember about you?",
           "who": "parents",
-          "level": "gentle"
+          "level": "gentle",
+          "tip": "Ask for the story behind the answer."
         },
         {
           "text": "What stories do you want your grandchildren to know?",
           "who": "parents",
-          "level": "gentle"
+          "level": "gentle",
+          "tip": "Ask for one story now. Others can come later."
         },
         {
           "text": "Is there a belonging you’d want a specific person to have?",
           "who": "parents",
-          "level": "practical"
+          "level": "practical",
+          "tip": "Saying it out loud now can prevent hurt feelings later."
         },
         {
           "text": "Are there causes or people outside the family you’d want to support?",
           "who": "parents",
-          "level": "practical"
+          "level": "practical",
+          "tip": "This can include friends, places of worship or charities."
         },
         {
           "text": "Do you have wishes for a funeral or memorial?",
           "who": "parents",
-          "level": "deeper"
+          "level": "deeper",
+          "tip": "Small details count: music, place, who speaks."
         },
         {
           "text": "If you could choose, where would you want to be at the end of your life?",
           "who": "parents",
-          "level": "deeper"
+          "level": "deeper",
+          "tip": "Home, hospital or somewhere else. It’s okay to be unsure."
         },
         {
           "text": "Who would you want with you?",
           "who": "parents",
-          "level": "deeper"
+          "level": "deeper",
+          "tip": "Go gently. Pause if anyone needs a moment."
         },
         {
           "text": "Is there something you’d want to say to someone that you haven’t yet?",
           "who": "everyone",
-          "level": "deeper"
+          "level": "deeper",
+          "tip": "You don’t have to say it here. Naming it is enough."
         },
         {
           "text": "Would you like to write a letter or record a message for the family?",
           "who": "parents",
-          "level": "deeper"
+          "level": "deeper",
+          "tip": "Kids: offer to help them get started."
         },
         {
           "text": "How would you like us to remember you on hard days, like anniversaries?",
           "who": "parents",
-          "level": "deeper"
+          "level": "deeper",
+          "tip": "End with something warm. Say thank you to each other."
         }
       ]
     }

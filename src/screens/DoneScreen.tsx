@@ -1,97 +1,95 @@
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { DECKS, Deck, groupOf } from '../content';
-import { Mark } from '../progress';
+import { Marks, talkedCount } from '../progress';
 import { colors, fonts } from '../theme';
 import { ChevronIcon, Logo } from '../components/Icons';
-import { Button, Card, Eyebrow, tap } from '../components/ui';
+import { QuestionList } from '../components/QuestionList';
+import { Body, Button, Card, Eyebrow, Title, tap } from '../components/ui';
 
 type Props = {
   deck: Deck;
   deckIndex: number;
-  marks: (Mark | undefined)[];
-  onReplay: (questionIndexes: number[]) => void;
-  onOpenDeck: (index: number) => void;
+  marks: Marks;
+  onPick: (questionIndex: number) => void;
+  onReplay: (queue: number[]) => void;
+  onOpenDeck: (deckIndex: number) => void;
   onHome: () => void;
 };
 
-export function DoneScreen({ deck, deckIndex, marks, onReplay, onOpenDeck, onHome }: Props) {
+export function DoneScreen({ deck, deckIndex, marks, onPick, onReplay, onOpenDeck, onHome }: Props) {
   const insets = useSafeAreaInsets();
   const group = groupOf(deck);
-  const later = deck.questions.map((_, i) => i).filter((i) => marks[i] !== 'talked');
-  const talked = deck.questions.length - later.length;
+  const talked = talkedCount(marks);
+  const all = deck.questions.map((_, i) => i);
+  const skipped = all.filter((i) => marks[i] === 'later');
+  const notYet = all.filter((i) => !marks[i]);
+  const toCome = [...skipped, ...notYet];
   const nextIndex = (deckIndex + 1) % DECKS.length;
+  const next = DECKS[nextIndex];
+  // Skipped ones first, then the rest, so the list stays short and useful.
+  const ordered = [...toCome, ...all.filter((i) => marks[i] === 'talked')];
 
   return (
     <ScrollView
       style={{ flex: 1, backgroundColor: colors.cream }}
-      contentContainerStyle={[styles.content, { paddingTop: insets.top + 32, paddingBottom: insets.bottom + 24 }]}
+      contentContainerStyle={{ paddingTop: insets.top + 24, paddingBottom: insets.bottom + 20, paddingHorizontal: 20, gap: 16 }}
     >
       <View style={[styles.badge, { backgroundColor: group.colors.background }]}>
-        <Logo size={48} />
+        <Logo size={44} />
       </View>
       <View style={{ gap: 6 }}>
-        <Text accessibilityRole="header" style={styles.title}>You talked it through</Text>
-        <Text style={styles.subtitle}>{deck.title}. That took courage from everyone at the table.</Text>
+        <Title size={32}>{talked > 0 ? 'You talked it through' : 'You can pick this up anytime'}</Title>
+        <Body>{talked > 0 ? `${deck.title}. That took courage from everyone at the table.` : `${deck.title} will be here when you’re ready.`}</Body>
       </View>
 
       <View style={styles.stats}>
         <Card style={styles.stat}>
           <Text style={styles.statNum}>{talked}</Text>
-          <Text style={styles.statLabel}>questions talked through</Text>
+          <Text style={styles.statLabel}>talked through</Text>
         </Card>
         <Card style={styles.stat}>
-          <Text style={styles.statNum}>{later.length}</Text>
+          <Text style={styles.statNum}>{toCome.length}</Text>
           <Text style={styles.statLabel}>to come back to</Text>
         </Card>
       </View>
 
-      {later.length > 0 && (
-        <>
-          <Card style={{ paddingHorizontal: 16 }}>
-            {later.map((i, n) => (
-              <Text key={i} style={[styles.laterItem, n > 0 && { borderTopWidth: 1, borderTopColor: colors.divider }]}>
-                {deck.questions[i].text}
-              </Text>
-            ))}
-          </Card>
-          <Button
-            variant="secondary"
-            label={`Come back to the ${later.length} ${later.length === 1 ? 'question' : 'questions'}`}
-            onPress={() => onReplay(later)}
-          />
-        </>
-      )}
+      <View style={{ gap: 8 }}>
+        <Text style={styles.listTitle}>Want to revisit anything? Tap a question to go back to it.</Text>
+        <QuestionList deck={deck} marks={marks} indexes={ordered} onPick={onPick} />
+      </View>
 
+      {toCome.length > 0 && (
+        <Button
+          variant="secondary"
+          label={toCome.length === 1 ? 'Come back to the 1 question left' : `Come back to the ${toCome.length} questions left`}
+          onPress={() => onReplay(toCome)}
+        />
+      )}
       <Pressable
         accessibilityRole="button"
-        onPress={() => {
-          tap();
-          onOpenDeck(nextIndex);
-        }}
-        style={({ pressed }) => [styles.next, pressed && { opacity: 0.9 }]}
+        accessibilityLabel={`Up next: ${next.title}`}
+        onPress={() => { tap(); onOpenDeck(nextIndex); }}
+        style={({ pressed }) => [styles.next, pressed && { opacity: 0.85 }]}
       >
-        <View style={{ gap: 3, flex: 1 }}>
+        <View style={{ flex: 1, gap: 2 }}>
           <Eyebrow color={colors.goldLight}>Up next</Eyebrow>
-          <Text style={styles.nextTitle}>{DECKS[nextIndex].title}</Text>
+          <Text style={styles.nextTitle}>{next.title}</Text>
         </View>
         <ChevronIcon color={colors.cream} />
       </Pressable>
-      <Button variant="ghost" label="Start another conversation" onPress={onHome} />
+      <Button variant="ghost" label="Back to topics" onPress={onHome} />
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  content: { paddingHorizontal: 20, gap: 16 },
-  badge: { width: 88, height: 88, borderRadius: 44, alignItems: 'center', justifyContent: 'center' },
-  title: { fontFamily: fonts.display, fontSize: 32, lineHeight: 35, color: colors.navy, letterSpacing: -0.6 },
-  subtitle: { fontFamily: fonts.body, fontSize: 15, lineHeight: 22, color: colors.muted },
+  badge: { width: 80, height: 80, borderRadius: 40, alignItems: 'center', justifyContent: 'center' },
   stats: { flexDirection: 'row', gap: 10 },
-  stat: { flex: 1, padding: 14, gap: 2, borderRadius: 16 },
+  stat: { flex: 1, padding: 14, gap: 2 },
   statNum: { fontFamily: fonts.display, fontSize: 30, color: colors.navy },
   statLabel: { fontFamily: fonts.body, fontSize: 13, color: colors.muted },
-  laterItem: { fontFamily: fonts.body, fontSize: 15, lineHeight: 21, color: colors.navy, paddingVertical: 12 },
-  next: { backgroundColor: colors.navy, borderRadius: 18, paddingVertical: 16, paddingHorizontal: 18, flexDirection: 'row', alignItems: 'center', gap: 12 },
-  nextTitle: { fontFamily: fonts.bodyBold, fontSize: 17, color: colors.cream },
+  listTitle: { fontFamily: fonts.bodyBold, fontSize: 14, color: colors.navy },
+  next: { borderRadius: 16, backgroundColor: colors.navy, paddingHorizontal: 18, paddingVertical: 14, flexDirection: 'row', alignItems: 'center', gap: 12 },
+  nextTitle: { fontFamily: fonts.bodyBold, fontSize: 16, color: colors.cream },
 });

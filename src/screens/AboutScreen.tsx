@@ -37,12 +37,12 @@ export function AboutScreen({ onBack }: { onBack: () => void }) {
       </Card>
       <Card style={styles.section}>
         <Text style={styles.sectionTitle}>Not professional advice</Text>
-        <Text style={styles.body}>These questions help families talk. They aren’t medical, legal or financial advice. For decisions, speak with a qualified professional.</Text>
+        <Text style={styles.body}>These questions help families talk. For medical, legal or financial decisions, speak with a qualified professional.</Text>
       </Card>
       <Card style={styles.section}>
         <Text style={styles.sectionTitle}>How we wrote the questions</Text>
         <Text style={styles.body}>
-          Every question is grounded in published research on how families talk about money, health and the end of life, drawing on family psychology, family wealth advising and end-of-life care guides such as The Conversation Project’s.
+          Every question is grounded in published research on how families talk about money, health and the end of life.
         </Text>
       </Card>
 
